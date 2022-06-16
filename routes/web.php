@@ -22,3 +22,9 @@ Route::get('mof',function(){
 return view('hooo');
 
 });
+Route::get('mofgg',function(){
+
+    return view('hoogggo');
+    
+    });
+    
