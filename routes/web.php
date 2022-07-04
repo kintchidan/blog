@@ -14,17 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main-page');
 });
 
-Route::get('mof',function(){
 
-return view('hooo');
+Route::resource('visitor', VisitorController::class);
+Route::resource('comment', CommentController::class);
+Route::resource('article', ArticleController::class);
+Route::get('/articldel/{id}',[ArticleController::class,"destroy"]);
+Route::get('/commentdel/{id}',[CommentController::class,"destroy"]);
 
-});
-Route::get('mofgg',function(){
 
-    return view('hoogggo');
-    
-    });
+Route::get('/visitorshow/{id}',[VisitorController::class,"show"]);
+Route::get('/commentshow/{id}',[CommentController::class,"show"]);
+Route::get('/articlshow/{id}',[ArticleController::class,"show"]);
+Route::get('/createcomment',[CommentController::class,"create"]);
+Route::post('/storecomment',[CommentController::class,"store"]);
     
